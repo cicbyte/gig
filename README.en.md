@@ -4,6 +4,8 @@
 [![Release](https://img.shields.io/github/v/release/cicbyte/gig?style=flat-square)](https://github.com/cicbyte/gig/releases)
 [![License](https://img.shields.io/github/license/cicbyte/gig?style=flat-square)](LICENSE)
 
+English | **[简体中文](README.md)**
+
 > Smart full-lifecycle `.gitignore` management tool
 
 **gig** is a Go CLI tool that provides full-lifecycle management for `.gitignore` files — creation, diagnosis, refactoring, and repair. It supports three template sources: local templates, GitHub official templates, and AI generation.

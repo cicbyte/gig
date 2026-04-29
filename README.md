@@ -4,6 +4,8 @@
 [![Release](https://img.shields.io/github/v/release/cicbyte/gig?style=flat-square)](https://github.com/cicbyte/gig/releases)
 [![License](https://img.shields.io/github/license/cicbyte/gig?style=flat-square)](LICENSE)
 
+**[English](README.en.md)** | 简体中文
+
 > 智能 `.gitignore` 全生命周期管理工具
 
 **gig** 是一个 Go CLI 工具，提供 `.gitignore` 文件的创建、诊断、整理、修复等全生命周期管理。支持本地模板、GitHub 官方模板和 AI 生成三种模板源。
