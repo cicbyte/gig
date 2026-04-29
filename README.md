@@ -1,21 +1,14 @@
 # gig
 
-**智能 .gitignore 全生命周期管理工具**
+[![Go Reference](https://pkg.go.dev/badge/github.com/cicbyte/gig.svg)](https://pkg.go.dev/github.com/cicbyte/gig)
+[![Release](https://img.shields.io/github/v/release/cicbyte/gig?style=flat-square)](https://github.com/cicbyte/gig/releases)
+[![License](https://img.shields.io/github/license/cicbyte/gig?style=flat-square)](LICENSE)
+
+> 智能 `.gitignore` 全生命周期管理工具
 
 **gig** 是一个 Go CLI 工具，提供 `.gitignore` 文件的创建、诊断、整理、修复等全生命周期管理。支持本地模板、GitHub 官方模板和 AI 生成三种模板源。
 
----
-
-### 为什么选择 gig
-
-| 传统方式 | gig |
-| :--- | :--- |
-| 手动维护 `.gitignore` | 全生命周期：创建、诊断、整理、修复 |
-| 遇到问题反复查文档 | 智能诊断 + 一键修复 |
-| 只能用固定模板 | 三种模板源：本地 / GitHub / AI |
-| 手动写排除规则 | `track` / `ignore` / `check` 一站式管理 |
-
-### 功能概览
+## 功能特性
 
 - **模板添加** (`gig add`) — 从本地、GitHub 或 AI 获取规则，合并去重后写入
 - **直接忽略** (`gig ignore`) — 将文件/文件夹添加到 `.gitignore`，已跟踪的文件自动取消跟踪
@@ -26,9 +19,7 @@
 - **查看文件** (`gig view`) — 查看当前项目的 `.gitignore`，自动向上查找
 - **模板管理** (`gig template local/github`) — 管理本地和 GitHub 模板
 
----
-
-### 安装
+## 安装
 
 需要 Go 1.23+。
 
@@ -38,7 +29,7 @@ go install github.com/cicbyte/gig@latest
 
 也可从 [GitHub Releases](https://github.com/cicbyte/gig/releases) 下载预编译二进制文件。
 
-### 快速开始
+## 快速开始
 
 ```bash
 # 自动检测项目类型并添加本地模板
@@ -72,11 +63,9 @@ gig track important.log
 gig view
 ```
 
----
+## 命令参考
 
-### 命令参考
-
-#### 项目操作
+### 项目操作
 
 | 命令 | 说明 |
 | :--- | :--- |
@@ -88,7 +77,7 @@ gig view
 | `gig refactor` | 用 AI 整理优化 `.gitignore` |
 | `gig track <file>` | 强制跟踪被忽略的文件（添加否定规则） |
 
-#### 模板管理
+### 模板管理
 
 | 命令 | 说明 |
 | :--- | :--- |
@@ -105,7 +94,7 @@ gig view
 | `gig template github view -n <name>` | 查看 GitHub 模板内容 |
 | `gig template github search <keyword>` | 搜索 GitHub 模板 |
 
-#### 配置与工具
+### 配置与工具
 
 | 命令 | 说明 |
 | :--- | :--- |
@@ -116,7 +105,7 @@ gig view
 | `gig version` | 显示版本信息 |
 | `gig completion` | 生成 Shell 补全脚本 |
 
-#### 全局参数
+### 全局参数
 
 | 参数 | 说明 |
 | :--- | :--- |
@@ -124,9 +113,7 @@ gig view
 | `-t, --type` | 模板源：`local`、`github`、`ai`（默认 `local`） |
 | `--yes` | 跳过确认提示 |
 
----
-
-### 配置
+## 配置
 
 配置目录：`~/.cicbyte/gig/config/`
 
@@ -136,7 +123,7 @@ gig view
 | `prompts/*.md` | AI 提示词模板，每类一个 `.md` 文件，可自定义 |
 | `detection.json` | 文件标记到项目类型的映射（如 `go.mod` → `go`） |
 
-#### AI 配置
+### AI 配置
 
 ```bash
 # 交互式配置
@@ -158,9 +145,7 @@ gig config set ai.model deepseek-chat
 
 默认使用 DeepSeek API（`deepseek-chat`），兼容所有 OpenAI 接口格式。为了获得更好的效果，建议选择能力较强的模型（如 `deepseek-reasoner`、`claude-sonnet-4-20250514` 等）。
 
----
-
-### 数据目录结构
+## 数据目录结构
 
 ```
 ~/.cicbyte/gig/
@@ -178,9 +163,7 @@ gig config set ai.model deepseek-chat
 └── template_github/         # GitHub 官方模板（git clone）
 ```
 
----
-
-### 多 .gitignore 支持
+## 多 .gitignore 支持
 
 gig 会智能处理项目中存在多个 `.gitignore` 的场景：
 
@@ -191,8 +174,15 @@ gig 会智能处理项目中存在多个 `.gitignore` 的场景：
 
 优先级：子目录 `.gitignore` > 父目录 `.gitignore` > 根目录 `.gitignore`
 
----
+## 技术栈
 
-### License
+- Go 1.23
+- [Cobra](https://github.com/spf13/cobra) — CLI 框架
+- [Viper](https://github.com/spf13/viper) — 配置管理
+- [go-diff](https://github.com/sergi/go-diff) — Diff 计算
+- [promptui](https://github.com/manifoldco/promptui) — 交互式提示
+- [Zap](https://github.com/uber-go/zap) — 结构化日志
 
-MIT
+## License
+
+[MIT](LICENSE)

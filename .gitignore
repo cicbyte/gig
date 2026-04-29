@@ -61,3 +61,5 @@ msg.txt
 # --- 由 gig ignore 添加 ---
 CLAUDE.md
 .claude/
+.vscode/
+.reference/
